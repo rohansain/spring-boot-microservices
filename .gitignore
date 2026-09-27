@@ -1,0 +1,30 @@
+### Compiled & Build Outputs ###
+target/
+*.class
+*.jar
+*.war
+*.ear
+*.log
+
+### IntelliJ IDEA ###
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+### Eclipse / VS Code ###
+.project
+.classpath
+.settings/
+.vscode/
+
+### Environment & Secrets ###
+.env
+*.local
+application-secret.properties
+application-secret.yml
+
+### OS Generated ###
+.DS_Store
+Thumbs.db
