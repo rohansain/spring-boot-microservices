@@ -4,58 +4,28 @@ server:
 spring:
   application:
     name: api-gateway
+
   cloud:
     gateway:
       server:
         webmvc:
           routes:
-            # Business API routes
-            - id: user-service
-              uri: http://localhost:8081
-              predicates:
-                - Path=/users/**
-
             - id: product-service
-              uri: http://localhost:8082
+              uri: lb://product-service
               predicates:
-                - Path=/products/**
+                - Path=/api/v1/products/**
 
             - id: order-service
-              uri: http://localhost:8083
+              uri: lb://order-service
               predicates:
-                - Path=/orders/**
+                - Path=/api/v1/orders/**
 
-            # Docs routes (using SetPath)
-            - id: user-docs
-              uri: http://localhost:8081
+            - id: user-service
+              uri: lb://user-service
               predicates:
-                - Path=/user-service/v3/api-docs
-              filters:
-                - SetPath=/v3/api-docs
+                - Path=/api/v1/users/**
 
-            - id: product-docs
-              uri: http://localhost:8082
-              predicates:
-                - Path=/product-service/v3/api-docs
-              filters:
-                - SetPath=/v3/api-docs
-
-            - id: order-docs
-              uri: http://localhost:8083
-              predicates:
-                - Path=/order-service/v3/api-docs
-              filters:
-                - SetPath=/v3/api-docs
-
-# Swagger aggregation config
-springdoc:
-  swagger-ui:
-    path: /swagger-ui.html
-    urls:
-      - name: User Service
-        url: /user-service/v3/api-docs
-      - name: Product Service
-        url: /product-service/v3/api-docs
-      - name: Order Service
-        url: /order-service/v3/api-docs
-    server-url: http://localhost:8080
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
