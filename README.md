@@ -257,6 +257,30 @@ Circuit Breaker
 Fallback
         ↓
 "Product service unavailable"
+
+**12. Distributed Tracing — Micrometer Tracing + Zipkin**
+
+Client
+   ↓
+API Gateway
+   ↓
+Order Service
+   ↓
+Product Service
+   ↓
+Zipkin
+
+Implemented:
+
+Micrometer Tracing
+Zipkin
+Trace ID propagation
+Span creation
+Gateway tracing
+OpenFeign tracing
+End-to-end tracing
+Latency visualization
+Failure tracing
 ```
 
 ---
