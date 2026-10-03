@@ -257,8 +257,11 @@ Circuit Breaker
 Fallback
         ↓
 "Product service unavailable"
+```
 
-**12. Distributed Tracing — Micrometer Tracing + Zipkin**
+---
+
+### 12. Distributed Tracing — Micrometer Tracing + Zipkin
 
 Client
    ↓
